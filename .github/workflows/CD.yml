@@ -30,12 +30,11 @@ jobs:
         run: docker build -t saja123/final-python .
       #login to docker hub  
       - name: Login to Docker Hub
-        run: docker login
-      #   uses: docker/login-action@v3
-      #   with:
-      #     username: ${{ vars.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
-      #  run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login docker.pkg.github.com -u "${{ vars.DOCKER_USERNAME }}" --password-stdin
       # Runs a set of commands using the runners shell
       - name: push to dockerhub
         run: docker push saja123/final-python
