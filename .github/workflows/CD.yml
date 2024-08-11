@@ -25,8 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: build docker container
+      # building docker image
+      - name: build docker image
         run: docker build -t saja123/final-python .
       #login to docker hub  
       - name: Login to Docker Hub
@@ -34,6 +34,6 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      # Runs a set of commands using the runners shell
+      # push to dockerhub
       - name: push to dockerhub
         run: docker push saja123/final-python
