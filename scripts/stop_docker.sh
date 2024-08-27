@@ -1,3 +1,3 @@
 #!/bin/bash
-docker stop final-python || true
-docker rm final-python || true
+docker stop saja123/final-python || true
+docker rm saja123/final-python || true
